@@ -1,7 +1,7 @@
 # Reference 
-```bash
+
 Xu, L., Xu, M., Li, F., & Huo, W. (2020). ELAID: detecting integer-Overflow-to-Buffer-Overflow vulnerabilities by light-weight and accurate static analysis. Cybersecurity, 3(1), 18.
-```
+
 # Build 
 ```bash
 cmake -DLLVM_DIR=$(llvm-config --cmakedir) ..
