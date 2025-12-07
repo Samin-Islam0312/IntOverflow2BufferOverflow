@@ -1,0 +1,104 @@
+
+
+[32m===============iteration: 1====================[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %5 = load ptr, ptr @__stdinp, align 8 has alias:
+ * @__stdinp = external global ptr, align 8
+  %5 = load ptr, ptr @__stdinp, align 8 : Type 0
+[1m[31m[TAINT SOURCE] Detected fscanf reading into:[0m   %2 = alloca i32, align 4
+[1m[31m[WARN] Uses a Type 3 (Dangerous) operand at Sink!
+      Instruction:   store ptr %2, ptr %3, align 8[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %10 = load ptr, ptr %3, align 8 has alias:
+ *   %3 = alloca ptr, align 8
+  %10 = load ptr, ptr %3, align 8 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %11 = load i32, ptr %10, align 4 has alias:
+ * @__stdinp = external global ptr, align 8
+ *   %10 = load ptr, ptr %3, align 8
+  %11 = load i32, ptr %10, align 4 : Type 0
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %13 = load ptr, ptr %3, align 8 has alias:
+ *   %3 = alloca ptr, align 8
+  %13 = load ptr, ptr %3, align 8 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %14 = load i32, ptr %2, align 4 has alias:
+ * @__stdinp = external global ptr, align 8
+ *   %10 = load ptr, ptr %3, align 8
+ *   %13 = load ptr, ptr %3, align 8
+ *   %2 = alloca i32, align 4
+  %14 = load i32, ptr %2, align 4 : Type 3
+[1m[31m[WARN] Uses a Type 3 (Dangerous) operand at Sink!
+      Instruction:   store i32 %15, ptr %4, align 4[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %16 = load i32, ptr %4, align 4 has alias:
+ *   %4 = alloca i32, align 4
+  %16 = load i32, ptr %4, align 4 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %19 = load i32, ptr %1, align 4 has alias:
+ *   %1 = alloca i32, align 4
+  %19 = load i32, ptr %1, align 4 : Type 0
+
+
+[32m===============iteration: 2====================[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %5 = load ptr, ptr @__stdinp, align 8 has alias:
+ * @__stdinp = external global ptr, align 8
+  %5 = load ptr, ptr @__stdinp, align 8 : Type 0
+[1m[31m[TAINT SOURCE] Detected fscanf reading into:[0m   %2 = alloca i32, align 4
+[1m[31m[WARN] Uses a Type 3 (Dangerous) operand at Sink!
+      Instruction:   store ptr %2, ptr %3, align 8[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %10 = load ptr, ptr %3, align 8 has alias:
+ *   %3 = alloca ptr, align 8
+  %10 = load ptr, ptr %3, align 8 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %11 = load i32, ptr %10, align 4 has alias:
+ * @__stdinp = external global ptr, align 8
+ *   %10 = load ptr, ptr %3, align 8
+  %11 = load i32, ptr %10, align 4 : Type 0
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %13 = load ptr, ptr %3, align 8 has alias:
+ *   %3 = alloca ptr, align 8
+  %13 = load ptr, ptr %3, align 8 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %14 = load i32, ptr %2, align 4 has alias:
+ * @__stdinp = external global ptr, align 8
+ *   %10 = load ptr, ptr %3, align 8
+ *   %13 = load ptr, ptr %3, align 8
+ *   %2 = alloca i32, align 4
+  %14 = load i32, ptr %2, align 4 : Type 3
+[1m[31m[WARN] Uses a Type 3 (Dangerous) operand at Sink!
+      Instruction:   store i32 %15, ptr %4, align 4[0m
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %16 = load i32, ptr %4, align 4 has alias:
+ *   %4 = alloca i32, align 4
+  %16 = load i32, ptr %4, align 4 : Type 3
+[36m[INFO][35m[ALIAS ANALYSIS][0m   %19 = load i32, ptr %1, align 4 has alias:
+ *   %1 = alloca i32, align 4
+  %19 = load i32, ptr %1, align 4 : Type 0
+
+
+[32m===============End of all iterations====================[0m
+[36m[INFO][0mFn:main BB:%0 Inst:  %1 = alloca i32, align 4 Type:0
+[0m[36m[INFO][0mFn:main BB:%0[31m Inst:  %2 = alloca i32, align 4 Type:3
+[0m[36m[INFO][0mFn:main BB:%0 Inst:  %3 = alloca ptr, align 8 Type:0
+[0m[36m[INFO][0mFn:main BB:%0 Inst:  %4 = alloca i32, align 4 Type:0
+[0m[36m[INFO][0mFn:main BB:%0 Inst:  %5 = load ptr, ptr @__stdinp, align 8 Type:0
+[0m[36m[INFO][0mFn:main BB:%0 Inst:  br i1 %7, label %8, label %9 Type:0
+[0m[36m[INFO][0mFn:main BB:%8 Inst:  br label %18 Type:0
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  store ptr %2, ptr %3, align 8 Type:3
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  %10 = load ptr, ptr %3, align 8 Type:3
+[0m[36m[INFO][0mFn:main BB:%9 Inst:  %11 = load i32, ptr %10, align 4 Type:0
+[0m[36m[INFO][0mFn:main BB:%9 Inst:  %12 = add nsw i32 %11, 1 Type:1
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  %13 = load ptr, ptr %3, align 8 Type:3
+[0m[36m[INFO][0mFn:main BB:%9 Inst:  store i32 %12, ptr %13, align 4 Type:1
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  %14 = load i32, ptr %2, align 4 Type:3
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  %15 = mul nsw i32 %14, 8 Type:3
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  store i32 %15, ptr %4, align 4 Type:3
+[0m[36m[INFO][0mFn:main BB:%9[31m Inst:  %16 = load i32, ptr %4, align 4 Type:3
+[0m[36m[INFO][0mFn:main BB:%9 Inst:  br label %18 Type:0
+[0m[36m[INFO][0mFn:main BB:%18 Inst:  %19 = load i32, ptr %1, align 4 Type:0
+[0m[36m[INFO][0mFn:main BB:%18 Inst:  ret i32 %19 Type:0
+[0m[36m[INFO][0mFn:main BB:%0 Inst:  %7 = icmp ne i32 %6, 1 Type:0
+[0m
+
+[32m===============Dangerous Registers====================[0m
+[31m[DANGER][0m Fn:main Inst:  %2 = alloca i32, align 4 Type:3
+[31m[DANGER][0m Fn:main Inst:  store ptr %2, ptr %3, align 8 Type:3
+[31m[DANGER][0m Fn:main Inst:  %10 = load ptr, ptr %3, align 8 Type:3
+[31m[DANGER][0m Fn:main Inst:  %13 = load ptr, ptr %3, align 8 Type:3
+[31m[DANGER][0m Fn:main Inst:  %14 = load i32, ptr %2, align 4 Type:3
+   -> Related arithmetic operations: 
+        %15 = mul nsw i32 %14, 8
+[31m[DANGER][0m Fn:main Inst:  %15 = mul nsw i32 %14, 8 Type:3
+[31m[DANGER][0m Fn:main Inst:  store i32 %15, ptr %4, align 4 Type:3
+[31m[DANGER][0m Fn:main Inst:  %16 = load i32, ptr %4, align 4 Type:3
+SPLIT AT:%safe_continue
